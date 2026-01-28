@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import { Sun, CloudRain, Wheat, MapPin } from 'lucide-react';
+import { Sun, CloudRain, Wheat } from 'lucide-react';
 import type { Metadata } from 'next';
 import { FadeIn, SlideUp, StaggerContainer, StaggerItem, HoverCard } from '@/components/ui/Motion';
+import InteractiveMap from '@/components/ui/InteractiveMapWrapper';
 
 export const metadata: Metadata = {
   title: 'Il Territorio',
@@ -113,73 +114,10 @@ export default function TerritoryPage() {
        <section className="bg-gray-100 py-20">
          <div className="container mx-auto px-6 text-center">
             <FadeIn>
-              <h2 className="font-serif text-3xl text-brand-blue font-bold mb-12">Logistica Efficiente</h2>
+              <h2 className="font-serif text-3xl text-brand-blue font-bold mb-12">Dal Cuore dell'Italia alla Francia</h2>
             </FadeIn>
-            <FadeIn className="relative max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-4 overflow-hidden" delay={0.2}>
-               {/* Map Container - using intrinsic ratio to ensure pins stay aligned */}
-               <div className="relative w-full aspect-[1.35/1] bg-blue-50/30 rounded-lg overflow-hidden">
-                 <Image 
-                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Europe_political_chart_blank.svg/1024px-Europe_political_chart_blank.svg.png" 
-                   alt="Mappa Europa"
-                   fill
-                   className="object-cover opacity-30 mix-blend-multiply"
-                 />
-                 
-                 {/* Overlay Container for Points and Lines */}
-                 <div className="absolute inset-0 w-full h-full">
-                    {/* Connection Line SVG */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-                      <defs>
-                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#CE2B37" />
-                          <stop offset="50%" stopColor="#C5A059" />
-                          <stop offset="100%" stopColor="#003399" />
-                        </linearGradient>
-                      </defs>
-                      {/* Path from Salerno (approx 56, 78) to Paris (approx 38, 48) on this specific map projection */}
-                      <path 
-                        d="M 56 78 Q 45 65 38 48" 
-                        fill="none" 
-                        stroke="url(#lineGradient)" 
-                        strokeWidth="0.5" 
-                        strokeDasharray="1 1"
-                        className="animate-pulse"
-                        vectorEffect="non-scaling-stroke"
-                      />
-                    </svg>
-
-                    {/* Salerno Point */}
-                    <div className="absolute top-[78%] left-[56%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
-                      <MapPin className="text-italy-red fill-current animate-bounce" size={32} />
-                      <span className="bg-white px-3 py-1 text-xs font-bold shadow-md rounded mt-1 whitespace-nowrap text-brand-blue">
-                        Salerno
-                      </span>
-                    </div>
-
-                    {/* Paris Point */}
-                    <div className="absolute top-[48%] left-[38%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
-                      <MapPin className="text-brand-blue fill-current animate-bounce" style={{ animationDelay: '0.5s' }} size={32} />
-                      <span className="bg-white px-3 py-1 text-xs font-bold shadow-md rounded mt-1 whitespace-nowrap text-brand-blue">
-                        Parigi
-                      </span>
-                    </div>
-                 </div>
-               </div>
-               
-               <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-brand-blue mb-2">Partenza: Piana del Sele</h4>
-                    <p className="text-sm text-gray-600">I prodotti vengono ritirati direttamente dai caseifici partner subito dopo la produzione.</p>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-brand-blue mb-2">Trasporto Controllato</h4>
-                    <p className="text-sm text-gray-600">Mezzi refrigerati a temperatura costante garantiscono la catena del freddo.</p>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-bold text-brand-blue mb-2">Arrivo: Parigi</h4>
-                    <p className="text-sm text-gray-600">Consegna entro 24/48 ore nei migliori ristoranti e punti vendita della capitale.</p>
-                  </div>
-               </div>
+            <FadeIn className="relative max-w-4xl mx-auto h-[500px]" delay={0.2}>
+                <InteractiveMap />
             </FadeIn>
          </div>
        </section>
