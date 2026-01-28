@@ -49,7 +49,7 @@ const Territory: React.FC = () => {
             </div>
             <div className="relative">
               <img 
-                src="\public\images\Bufale_territorio.png" 
+                src="public/images/Bufale_territorio.webp" 
                 alt="Bufale al pascolo" 
                 referrerPolicy="no-referrer"
                 className="rounded-lg shadow-2xl z-10 relative"

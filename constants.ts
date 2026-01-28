@@ -46,7 +46,7 @@ export const PRODUCTS: Product[] = [
     description: 'Un sacchetto di pasta filata morbida che racchiude un cuore cremoso di stracciatella.',
     isDop: false,
     isIgp: true,
-    image: 'https://images.unsplash.com/photo-1621323386663-899477022e03?auto=format&fit=crop&q=80&w=800',
+    image: '/images/Burrata_pugliese.webp',
   },
   {
     id: '3',

@@ -10,7 +10,7 @@ const Home: React.FC = () => {
       <section className="relative h-[85vh] w-full overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/Sfondo.png')" }} 
+          style={{ backgroundImage: "url('/images/Sfondo.webp')" }} 
         >
           {/* Overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/90 via-brand-blue/60 to-transparent"></div>
