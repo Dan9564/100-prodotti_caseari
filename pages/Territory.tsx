@@ -8,7 +8,7 @@ const Territory: React.FC = () => {
        <div className="relative h-[60vh] flex items-center justify-center">
          <div className="absolute inset-0 z-0">
            <img 
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+            src="public/images/Sfondo_territorio.avif" 
             alt="Campagna Italiana" 
             className="w-full h-full object-cover"
            />
@@ -49,8 +49,9 @@ const Territory: React.FC = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1596637508638-316270425a76?auto=format&fit=crop&q=80&w=800" 
+                src="\public\images\Bufale_territorio.png" 
                 alt="Bufale al pascolo" 
+                referrerPolicy="no-referrer"
                 className="rounded-lg shadow-2xl z-10 relative"
               />
               <div className="absolute -bottom-10 -left-10 w-full h-full border-2 border-brand-blue/10 rounded-lg -z-0 hidden md:block"></div>

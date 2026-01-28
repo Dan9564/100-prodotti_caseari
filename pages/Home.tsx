@@ -10,7 +10,7 @@ const Home: React.FC = () => {
       <section className="relative h-[85vh] w-full overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1594968846747-0639e44f80c6?auto=format&fit=crop&q=80&w=2000")' }} 
+          style={{ backgroundImage: "url('/images/Sfondo.png')" }} 
         >
           {/* Overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/90 via-brand-blue/60 to-transparent"></div>
@@ -97,6 +97,7 @@ const Home: React.FC = () => {
                   <img 
                     src={product.image} 
                     alt={product.name} 
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" 
                   />
                   {(product.isDop || product.isIgp) && (

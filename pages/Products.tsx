@@ -47,6 +47,7 @@ const Products: React.FC = () => {
                    <img 
                     src={product.image} 
                     alt={product.name} 
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
                   />
                   <div className="absolute top-0 left-0 p-4 w-full flex justify-between">
