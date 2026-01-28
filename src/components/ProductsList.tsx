@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { PRODUCTS } from '@/constants';
 import { FadeIn, StaggerContainer, StaggerItem, HoverCard } from '@/components/ui/Motion';
 
@@ -19,19 +19,17 @@ export default function ProductsList() {
         {/* Categories Filter */}
         <FadeIn className="flex flex-wrap justify-center gap-4 mb-16">
           {['Tutti', 'Latticini', 'Formaggi Stagionati', 'Salumi', 'Gastronomia'].map((cat) => (
-            <motion.button 
+            <button 
               key={cat} 
               onClick={() => setActiveCategory(cat)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide transition-colors duration-300 ${
+              className={`px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide transition-all duration-300 transform hover:scale-105 active:scale-95 ${
                 activeCategory === cat 
                 ? 'bg-brand-blue text-white shadow-lg' 
                 : 'bg-white text-gray-500 border border-gray-200 hover:border-brand-blue hover:text-brand-blue'
               }`}
             >
               {cat}
-            </motion.button>
+            </button>
           ))}
         </FadeIn>
 
@@ -64,13 +62,11 @@ export default function ProductsList() {
                     <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
                       {product.description}
                     </p>
-                    <motion.button 
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full py-3 border border-brand-blue text-brand-blue text-sm font-bold uppercase tracking-wider hover:bg-brand-blue hover:text-white transition-colors rounded-sm mt-auto"
+                    <button 
+                      className="w-full py-3 border border-brand-blue text-brand-blue text-sm font-bold uppercase tracking-wider hover:bg-brand-blue hover:text-white transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] rounded-sm mt-auto"
                     >
                       Richiedi Info
-                    </motion.button>
+                    </button>
                   </div>
                 </HoverCard>
               </StaggerItem>

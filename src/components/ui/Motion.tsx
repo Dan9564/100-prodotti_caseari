@@ -117,15 +117,17 @@ export const StaggerItem: React.FC<MotionProps> = ({ children, className, ...pro
   );
 };
 
-// Hover effect wrapper
-export const HoverCard: React.FC<MotionProps> = ({ children, className, ...props }) => {
+// Hover effect wrapper - Pure CSS version for performance
+export const HoverCard: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, className, ...props }) => {
   return (
-    <motion.div
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
-      className={cn("transition-shadow duration-300", className)}
+    <div
+      className={cn(
+        "transition-all duration-300 hover:-translate-y-1 hover:shadow-lg",
+        className
+      )}
       {...props}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };

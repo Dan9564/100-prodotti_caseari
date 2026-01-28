@@ -1,9 +1,8 @@
 'use client';
 
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON, Polyline, Pane } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Polyline, Pane } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import { useEffect, useState } from 'react';
 
 // Custom Marker Icon with Pulse Effect
 const createCustomIcon = (color: string) => L.divIcon({
@@ -39,8 +38,6 @@ function getBezierPoints(start: [number, number], end: [number, number], control
 }
 
 export default function InteractiveMap({ className }: InteractiveMapProps) {
-  const [geoJsonData, setGeoJsonData] = useState(null);
-
   // Coordinates
   // Piana del Sele (approx. center of production area, near Eboli/Battipaglia)
   const pianaDelSele: [number, number] = [40.5200, 15.0000]; 
@@ -56,28 +53,8 @@ export default function InteractiveMap({ className }: InteractiveMapProps) {
   const centerView: [number, number] = [45.00, 9.00];
   const defaultZoom = 5;
 
-  useEffect(() => {
-    // Fetch simplified World GeoJSON
-    fetch('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_countries.geojson')
-      .then(response => response.json())
-      .then(data => setGeoJsonData(data));
-  }, []);
-
-  const geoJsonStyle = (feature: any) => {
-    const isTargetCountry = feature.properties.adm0_a3 === 'ITA' || feature.properties.adm0_a3 === 'FRA';
-    
-    return {
-      fillColor: isTargetCountry ? '#ffffff' : '#e5e7eb', // White for IT/FR, Light Gray for others
-      weight: isTargetCountry ? 1.5 : 0.5, // Border only for IT/FR
-      opacity: 1,
-      color: isTargetCountry ? '#d1d5db' : '#e5e7eb', // Subtle borders
-      dashArray: '',
-      fillOpacity: 1
-    };
-  };
-
   return (
-    <div className={`w-full h-full min-h-[500px] rounded-xl overflow-hidden border border-gray-200 shadow-lg bg-[#b6d0e2] relative ${className}`}>
+    <div className={`w-full h-full min-h-[500px] rounded-xl overflow-hidden border border-gray-200 shadow-lg relative ${className}`}>
       {/* Global Style for Ping Animation */}
       <style jsx global>{`
         @keyframes ping {
@@ -91,20 +68,17 @@ export default function InteractiveMap({ className }: InteractiveMapProps) {
       <MapContainer 
         center={centerView} 
         zoom={defaultZoom} 
-        scrollWheelZoom={true} 
-        style={{ height: '100%', width: '100%', background: 'transparent' }}
+        scrollWheelZoom={false} 
+        style={{ height: '100%', width: '100%' }}
         className="z-0"
-        zoomControl={false} // Minimalist look
-        attributionControl={false}
+        zoomControl={true}
+        attributionControl={true}
       >
-        {/* No TileLayer needed for this custom style - Background color handles the "Sea" */}
-        
-        {geoJsonData && (
-          <GeoJSON 
-            data={geoJsonData} 
-            style={geoJsonStyle}
-          />
-        )}
+        {/* Clean, elegant OSM-based tiles (CartoDB Positron) */}
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        />
 
         {/* The Route Path - Forced on top using a custom Pane */}
         <Pane name="route-pane" style={{ zIndex: 499 }}>

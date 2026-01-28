@@ -4,19 +4,15 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Star, ShieldCheck, Heart } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import { PRODUCTS, COMPANY_INFO } from '@/constants';
 import { FadeIn, StaggerContainer, StaggerItem, HoverCard, SlideUp } from '@/components/ui/Motion';
 
 export default function HomePage() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 1000], [0, 400]);
-
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative h-[85vh] min-h-[600px] w-full overflow-hidden">
-        <motion.div style={{ y }} className="absolute w-full h-[120%] -top-[10%] left-0 z-0">
+        <div className="absolute w-full h-full top-0 left-0 z-0">
           <Image
             src="/images/Sfondo.webp"
             alt="Piana del Sele"
@@ -25,7 +21,7 @@ export default function HomePage() {
             priority
             quality={90}
           />
-        </motion.div>
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/90 via-brand-blue/60 to-transparent z-0" />
 
         <div className="relative h-full container mx-auto px-6 flex flex-col justify-center z-10">

@@ -2,14 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { MapPin, Mail } from 'lucide-react';
 import { COMPANY_INFO, NAV_ITEMS } from '@/constants';
-import { FadeIn } from '@/components/ui/Motion';
 
 export default function Footer() {
   return (
     <footer className="bg-brand-blue text-white pt-16 pb-8">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
         {/* Brand Column */}
-        <FadeIn className="md:col-span-1" delay={0.1}>
+        <div className="md:col-span-1">
            <div className="mb-6">
              <h3 className="font-serif text-2xl font-bold mb-2">100% Prodotto Italiano</h3>
              <p className="text-gray-400 text-sm">{COMPANY_INFO.claim}</p>
@@ -23,10 +22,10 @@ export default function Footer() {
              <div className="h-1 w-8 bg-white"></div>
              <div className="h-1 w-8 bg-italy-red"></div>
            </div>
-        </FadeIn>
+        </div>
 
         {/* Navigation Column */}
-        <FadeIn delay={0.2}>
+        <div>
           <h4 className="font-bold text-lg mb-6 text-brand-gold">Esplora</h4>
           <ul className="space-y-3 text-sm text-gray-300">
             {NAV_ITEMS.map((item) => (
@@ -37,10 +36,10 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-        </FadeIn>
+        </div>
 
         {/* Contact Column */}
-        <FadeIn className="md:col-span-2" delay={0.3}>
+        <div className="md:col-span-2">
           <h4 className="font-bold text-lg mb-6 text-brand-gold">Contatti & Sede</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4 text-sm text-gray-300">
@@ -71,12 +70,12 @@ export default function Footer() {
               </div>
             </div>
           </div>
-        </FadeIn>
+        </div>
       </div>
 
-      <FadeIn className="container mx-auto px-6 pt-8 border-t border-blue-900 text-center text-xs text-gray-500" delay={0.4}>
+      <div className="container mx-auto px-6 pt-8 border-t border-blue-900 text-center text-xs text-gray-500">
         <p>&copy; {new Date().getFullYear()} 100% Prodotto Italiano. Tutti i diritti riservati.</p>
-      </FadeIn>
+      </div>
     </footer>
   );
 }

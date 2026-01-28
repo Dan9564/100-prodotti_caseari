@@ -37,7 +37,7 @@ export const PRODUCTS: Product[] = [
     description: 'La regina della tavola. Mozzarella fresca prodotta esclusivamente con latte di bufala intero fresco.',
     isDop: true,
     isIgp: false,
-    image: '/images/Bufale_territorio.webp',
+    image: '/images/mozzarella.webp',
   },
   {
     id: '2',
@@ -55,7 +55,7 @@ export const PRODUCTS: Product[] = [
     description: 'Il re dei formaggi, stagionato 24 mesi. Gusto ricco e friabile.',
     isDop: true,
     isIgp: false,
-    image: '',
+    image: '/images/Parmigiano.webp',
   },
   {
     id: '4',
@@ -64,7 +64,7 @@ export const PRODUCTS: Product[] = [
     description: 'Dolce e raffinato, stagionato con cura nelle colline di Parma.',
     isDop: true,
     isIgp: false,
-    image: '',
+    image: '/images/Prosciutto.webp',
   },
   {
     id: '5',
@@ -73,7 +73,7 @@ export const PRODUCTS: Product[] = [
     description: 'Morbida, delicata e leggermente dolce. Perfetta per dolci e ripieni.',
     isDop: true,
     isIgp: false,
-    image: '',
+    image: '/images/Ricotta.webp',
   },
   {
     id: '6',
@@ -82,6 +82,6 @@ export const PRODUCTS: Product[] = [
     description: 'Gusto intenso e piccante, simbolo della tradizione romana.',
     isDop: true,
     isIgp: false,
-    image: '',
+    image: '/images/Pecorino.webp',
   },
 ];

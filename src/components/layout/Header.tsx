@@ -29,15 +29,11 @@ export default function Header() {
   return (
     <>
       {/* Top Bar - Contact Info */}
-      <motion.div 
-        initial={{ opacity: 1, height: 'auto' }}
-        animate={{ 
-          opacity: isScrolled ? 0 : 1,
-          height: isScrolled ? 0 : 'auto',
-          paddingTop: isScrolled ? 0 : '0.5rem',
-          paddingBottom: isScrolled ? 0 : '0.5rem'
-        }}
-        className="bg-brand-blue text-white text-sm hidden md:block overflow-hidden"
+      <div 
+        className={cn(
+          "bg-brand-blue text-white text-sm hidden md:block overflow-hidden transition-all duration-300 ease-in-out",
+          isScrolled ? "h-0 opacity-0 py-0" : "h-auto opacity-100 py-2"
+        )}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex gap-6">
@@ -57,7 +53,7 @@ export default function Header() {
             </a>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Main Navigation */}
       <header
