@@ -1,20 +1,31 @@
 import React from 'react';
 import { CheckCircle, Award, BadgeCheck } from 'lucide-react';
+import type { Metadata } from 'next';
+import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from '@/components/ui/Motion';
 
-const Quality: React.FC = () => {
+export const metadata: Metadata = {
+  title: 'Qualità e Certificazioni',
+  description: 'La garanzia di portare in tavola solo il vero Made in Italy.',
+};
+
+export default function QualityPage() {
   return (
     <div className="flex flex-col">
       <div className="bg-brand-blue text-white py-16">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="font-serif text-4xl font-bold mb-4">Qualità Certificata</h1>
-          <p className="text-blue-100 max-w-2xl mx-auto">La garanzia di portare in tavola solo il vero Made in Italy.</p>
+          <SlideUp className="font-serif text-4xl font-bold mb-4" delay={0.1}>
+            Qualità Certificata
+          </SlideUp>
+          <FadeIn className="text-blue-100 max-w-2xl mx-auto" delay={0.2}>
+            La garanzia di portare in tavola solo il vero Made in Italy.
+          </FadeIn>
         </div>
       </div>
 
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div>
+            <FadeIn delay={0.3}>
                <h2 className="font-serif text-3xl text-brand-blue font-bold mb-6">DOP & IGP: Cosa significano?</h2>
                <p className="text-gray-600 mb-6 text-lg">
                  Le denominazioni europee non sono solo etichette, sono promesse. Promesse di origine, di metodo, di storia.
@@ -36,42 +47,40 @@ const Quality: React.FC = () => {
                  </div>
                  <div>
                    <h3 className="font-bold text-brand-blue text-lg">Indicazione Geografica Protetta</h3>
-                   <p className="text-sm text-gray-500 mt-1">Indica un prodotto agricolo o alimentare per il quale una determinata qualità, la reputazione o un'altra caratteristica dipende dall'origine geografica, e la cui produzione, trasformazione e/o elaborazione avviene in un'area geografica determinata.</p>
-                 </div>
-               </div>
-            </div>
+               <p className="text-sm text-gray-500 mt-1">Indica un prodotto agricolo o alimentare per il quale una determinata qualità, la reputazione o un&apos;altra caratteristica dipende dall&apos;origine geografica, e la cui produzione, trasformazione e/o elaborazione avviene in un&apos;area geografica determinata.</p>
+             </div>
+           </div>
+            </FadeIn>
 
-            <div className="bg-gray-50 p-10 rounded-lg border border-gray-100">
+            <SlideUp className="bg-gray-50 p-10 rounded-lg border border-gray-100" delay={0.4}>
                <h3 className="font-serif text-2xl text-brand-blue font-bold mb-8 text-center">Il Nostro Impegno</h3>
-               <ul className="space-y-6">
-                 <li className="flex items-start gap-4">
+               <StaggerContainer className="space-y-6" staggerDelay={0.2}>
+                 <StaggerItem className="flex items-start gap-4">
                    <CheckCircle className="text-italy-green shrink-0 mt-1" />
                    <div>
                      <span className="font-bold text-gray-800 block">Tracciabilità Totale</span>
                      <span className="text-sm text-gray-600">Sappiamo esattamente da quale stalla proviene il latte e da quale caseificio proviene il prodotto.</span>
                    </div>
-                 </li>
-                 <li className="flex items-start gap-4">
+                 </StaggerItem>
+                 <StaggerItem className="flex items-start gap-4">
                    <Award className="text-italy-green shrink-0 mt-1" />
                    <div>
                      <span className="font-bold text-gray-800 block">Selezione dei Fornitori</span>
                      <span className="text-sm text-gray-600">Collaboriamo solo con aziende certificate che rispettano le norme sanitarie UE e il benessere animale.</span>
                    </div>
-                 </li>
-                 <li className="flex items-start gap-4">
+                 </StaggerItem>
+                 <StaggerItem className="flex items-start gap-4">
                    <BadgeCheck className="text-italy-green shrink-0 mt-1" />
                    <div>
                      <span className="font-bold text-gray-800 block">Catena del Freddo</span>
                      <span className="text-sm text-gray-600">Monitoraggio costante della temperatura durante il trasporto Italia-Francia.</span>
                    </div>
-                 </li>
-               </ul>
-            </div>
+                 </StaggerItem>
+               </StaggerContainer>
+            </SlideUp>
           </div>
         </div>
       </section>
     </div>
   );
-};
-
-export default Quality;
+}
