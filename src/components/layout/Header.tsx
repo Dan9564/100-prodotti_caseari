@@ -84,10 +84,10 @@ export default function Header() {
                 "font-serif font-bold tracking-wide text-brand-blue leading-none transition-all duration-300",
                 isScrolled ? "text-lg" : "text-xl"
               )}>
-                100% Prodotto Italiano
+                100% Prodotti Italiani
               </span>
               <span className="text-[10px] uppercase tracking-widest text-gray-500 mt-1">
-                Distributeurs Laitiers
+                Fabricant et distributeur de produits laitiers et alimentaires italiens
               </span>
             </div>
           </Link>

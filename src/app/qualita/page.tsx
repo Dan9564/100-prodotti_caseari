@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { CheckCircle, Award, BadgeCheck } from 'lucide-react';
 import type { Metadata } from 'next';
 import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from '@/components/ui/Motion';
@@ -32,8 +33,8 @@ export default function QualityPage() {
                </p>
                
                <div className="flex gap-6 mb-8 items-start">
-                 <div className="w-16 h-16 shrink-0 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xs text-center border-2 border-yellow-400 shadow-md">
-                   DOP
+                 <div className="w-16 h-16 shrink-0 relative drop-shadow-md">
+                   <Image src="/images/Dop.svg" alt="DOP" fill className="object-contain" />
                  </div>
                  <div>
                    <h3 className="font-bold text-brand-blue text-lg">Denominazione di Origine Protetta</h3>
@@ -42,8 +43,8 @@ export default function QualityPage() {
                </div>
 
                <div className="flex gap-6 items-start">
-                 <div className="w-16 h-16 shrink-0 bg-blue-700 rounded-full flex items-center justify-center text-white font-bold text-xs text-center border-2 border-yellow-400 shadow-md">
-                   IGP
+                 <div className="w-16 h-16 shrink-0 relative drop-shadow-md">
+                   <Image src="/images/Igp.svg" alt="IGP" fill className="object-contain" />
                  </div>
                  <div>
                    <h3 className="font-bold text-brand-blue text-lg">Indicazione Geografica Protetta</h3>

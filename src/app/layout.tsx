@@ -19,8 +19,8 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | 100% Prodotto Italiano',
-    default: '100% Prodotto Italiano - Eccellenza Casearia',
+    template: '%s | 100% Prodotti Italiani',
+    default: '100% Prodotti Italiani - Eccellenza Casearia',
   },
   description: 'Distributeurs laitiers et produits Italiens en France. Importazione diretta dalla Piana del Sele.',
 };

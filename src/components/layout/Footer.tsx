@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="md:col-span-1">
            <div className="mb-6">
-             <h3 className="font-serif text-2xl font-bold mb-2">100% Prodotto Italiano</h3>
+             <h3 className="font-serif text-2xl font-bold mb-2">100% Prodotti Italiani</h3>
              <p className="text-gray-400 text-sm">{COMPANY_INFO.claim}</p>
            </div>
            <p className="text-gray-400 text-sm leading-relaxed mb-6">
@@ -47,6 +47,10 @@ export default function Footer() {
                 <MapPin size={18} className="mt-1 text-brand-gold shrink-0" />
                 <p>{COMPANY_INFO.address}</p>
               </div>
+              <div className="flex items-start gap-3">
+                <MapPin size={18} className="mt-1 text-brand-gold shrink-0" />
+                <p>{COMPANY_INFO.logisticsAddress}</p>
+              </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-brand-gold shrink-0" />
                 <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-white">{COMPANY_INFO.email}</a>
@@ -74,7 +78,7 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-6 pt-8 border-t border-blue-900 text-center text-xs text-gray-500">
-        <p>&copy; {new Date().getFullYear()} 100% Prodotto Italiano. Tutti i diritti riservati.</p>
+        <p>&copy; {2021} SAS 100% Italia. Tutti i diritti riservati.</p>
       </div>
     </footer>
   );

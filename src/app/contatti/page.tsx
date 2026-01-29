@@ -7,7 +7,7 @@ import { FadeIn, SlideUp } from '@/components/ui/Motion';
 
 export const metadata: Metadata = {
   title: 'Contatti',
-  description: 'Contatta 100% Prodotto Italiano per il listino prezzi e informazioni sulla distribuzione.',
+  description: 'Contatta 100% Prodotti Italiani per il listino prezzi e informazioni sulla distribuzione.',
 };
 
 export default function ContactPage() {

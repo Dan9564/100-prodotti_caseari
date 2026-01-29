@@ -1,3 +1,8 @@
+export interface Brand {
+  name: string;
+  logo: string;
+}
+
 export interface Product {
   id: string;
   name: string;

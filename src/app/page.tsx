@@ -130,16 +130,22 @@ export default function HomePage() {
                         <span>Immagine non disponibile</span>
                       </div>
                     )}
-                    <div className="absolute top-4 right-4 flex flex-col gap-2 items-end z-10">
-                      {product.isDop && (
-                        <span className="bg-[#CE2B37] text-white text-[10px] font-bold px-3 py-1 rounded shadow-lg border border-white uppercase tracking-wider">
-                          DOP
-                        </span>
+                    <div className="absolute top-4 right-4 flex gap-2 items-end z-10">
+                      {product.id === '1' ? (
+                        <div className="w-24 h-12 relative drop-shadow-md">
+                          <Image src="/images/logo_dop_e-_consorzio.svg" alt="DOP e Consorzio" fill className="object-contain" />
+                        </div>
+                      ) : (
+                        product.isDop && (
+                          <div className="w-10 h-10 relative drop-shadow-md">
+                            <Image src="/images/Dop.svg" alt="DOP" fill className="object-contain" />
+                          </div>
+                        )
                       )}
                       {product.isIgp && (
-                        <span className="bg-[#003399] text-white text-[10px] font-bold px-3 py-1 rounded shadow-lg border border-white uppercase tracking-wider">
-                          IGP
-                        </span>
+                        <div className="w-10 h-10 relative drop-shadow-md">
+                          <Image src="/images/Igp.svg" alt="IGP" fill className="object-contain" />
+                        </div>
                       )}
                     </div>
                   </div>
